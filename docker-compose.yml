@@ -1,0 +1,17 @@
+---
+x-docker-logging: &docker-logging
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "10m"  # 로그 파일의 최대 크기 (10MB)
+      max-file: "20"  # 유지할 로그 파일 개수 (최대 10개)
+
+services:
+  notebook:
+    <<: *docker-logging
+    container_name: notebook
+    build: dockerfile.d
+    volumes:
+      - ./notebook:/app/notebook
+    ports:
+      - 8888:8888
