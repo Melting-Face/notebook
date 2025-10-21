@@ -24,6 +24,6 @@ RUN uv sync --no-cache --python 3.12 && \
   cargo install evcxr_jupyter && \
   evcxr_jupyter --install
 
-# ENTRYPOINT [ "jupyter" ]
-#
-# CMD [ "lab", "--allow-root", "--config", "/app/jupyter_lab_config.py" ]
+ENTRYPOINT [ "jupyter" ]
+
+CMD [ "lab", "--allow-root", "--config", "/app/jupyter_lab_config.py" ]
